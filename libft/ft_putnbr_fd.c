@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/11/03 13:57:00 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/11/03 14:19:41 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_stack
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
+	unsigned int	n2;
 
-typedef struct s_norm
-{
-	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
-
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	if (n < 0)
+	{
+		n2 = -n;
+		ft_putchar_fd('-', fd);
+	}
+	else
+		n2 = n;
+	if (n2 >= 10)
+	{
+		ft_putnbr_fd(n2 / 10, fd);
+		ft_putnbr_fd(n2 % 10, fd);
+	}
+	else
+		ft_putchar_fd(n2 + '0', fd);
+}

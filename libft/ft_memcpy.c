@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/10/31 15:10:26 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/11/05 17:07:21 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_stack
+void	*ft_memcpy(void *dst, const void *src, size_t size)
 {
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
+	char	*src2;
+	char	*dst2;
+	size_t	i;
 
-typedef struct s_norm
-{
-	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
-
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	src2 = (char *) src;
+	dst2 = (char *) dst;
+	if (!dst && !src)
+		return (dst);
+	i = 0;
+	while (i < size)
+	{
+		dst2[i] = src2[i];
+		i++;
+	}
+	return (dst);
+}

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/11/01 16:00:26 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/11/05 17:19:05 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_stack
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
+	size_t	i;
+	size_t	a;
 
-typedef struct s_norm
-{
-	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
-
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	if (s2[0] == '\0' || s2 == NULL)
+		return ((char *) s1);
+	while (i < n && s1[i])
+	{
+		if (s1[i] == s2[0])
+		{
+			a = 0;
+			while (s1[i + a] == s2[a] && s1[i + a] && s2[a] && i + a < n)
+				a++;
+			if (s2[a] == '\0')
+				return ((char *) &s1[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}

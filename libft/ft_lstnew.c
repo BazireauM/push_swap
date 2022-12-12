@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/12/10 09:56:11 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/12/10 10:30:00 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_stack
+t_list	*ft_lstnew(void	*content)
 {
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
+	t_list	*final;
 
-typedef struct s_norm
-{
-	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
-
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	final = malloc(sizeof(t_list));
+	if (!final)
+		return (NULL);
+	final->content = content;
+	final->next = NULL;
+	return (final);
+}

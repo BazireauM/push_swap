@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/11/01 17:36:23 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/11/04 16:13:07 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_stack
+char	*ft_strdup(const char *s)
 {
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
+	int		i;
+	char	*dst;
 
-typedef struct s_norm
-{
-	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
-
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	dst = malloc(i + 1);
+	if (!dst)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		dst[i] = s[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}

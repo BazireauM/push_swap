@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/11/02 19:18:42 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/11/04 14:20:59 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_stack
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
+	int		a;
+	int		b;
+	char	*final;
 
-typedef struct s_norm
-{
-	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
-
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	a = ft_strlen(s1) + ft_strlen(s2);
+	final = malloc(sizeof(char) * a + 1);
+	if (!final)
+		return (NULL);
+	a = 0;
+	b = 0;
+	while (s1[b])
+	{
+		final[a] = s1[b];
+		b++;
+		a++;
+	}
+	b = 0;
+	while (s2[b])
+	{
+		final[a] = s2[b];
+		b++;
+		a++;
+	}
+	final[a] = '\0';
+	return (final);
+}

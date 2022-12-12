@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:55 by mbazirea         ###   ########.fr       */
+/*   Created: 2022/11/01 16:33:46 by mbazirea          #+#    #+#             */
+/*   Updated: 2022/11/05 12:01:41 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft/libft.h"
-
-typedef struct s_stack
-{
-	int	*a;
-	int	*b;
-	int	lena;
-	int	lenb;
-	int	len;
-}	t_stack;
-
-typedef struct s_norm
+int	ft_atoi(const char *s)
 {
 	int	i;
-	int	b;
-	int	nb_int;
-}	t_norm;
+	int	mul;
+	int	final;
 
-t_stack	*parssing(int argc, char *argv[]);
-int		test_input_valid(int argc, char *argv[]);
-int		count_nb_int(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	mul = 1;
+	final = 0;
+	while (s[i] != '\0' && (s[i] == '\f' || s[i] == '\r' || s[i] == ' '
+			|| s[i] == '\t' || s[i] == '\v' || s[i] == '\n'))
+		i++;
+	if (s[i] == '-')
+	{
+		mul = -1;
+		i++;
+	}
+	else if (s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		final = final * 10 + s[i] - 48;
+		i++;
+	}
+	final *= mul;
+	return (final);
+}
