@@ -1,7 +1,8 @@
 NAME	=	push_swap
 
 SRCS	=	main.c\
-			includes/parssing.c
+			includes/parssing.c\
+			includes/parssing_2.c
 
 LIBFTDIR	=	libft/
 

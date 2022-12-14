@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:31:49 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/14 10:43:43 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:29:21 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	*parssing(int argc, char *argv[])
 	//test input valide
 	if (test_input_valid(argc, argv) == 1)
 	{
-		printf("invalid input\n");
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	//count nb int
@@ -28,6 +28,7 @@ t_stack	*parssing(int argc, char *argv[])
 	stack->a = malloc(sizeof(int) * stack->len);
 	stack->b = malloc(sizeof(int) * stack->len);
 	//mettre les input dans a
+	//input_in_a(stack, argc, argv);
 	//test doublon
 	return (stack);
 }
@@ -35,7 +36,6 @@ t_stack	*parssing(int argc, char *argv[])
 void	input_in_a(t_stack *stack, int argc, char *argv[])
 {
 	int	i;
-	int	b;
 	int	a_index;
 
 	i = 1;
@@ -43,9 +43,10 @@ void	input_in_a(t_stack *stack, int argc, char *argv[])
 	while (i < argc)
 	{
 		if (have_space(argv[i]))
-			put_string_number_in_a(stack, argv[i], &a_index);
-		else
-			put_number_in_a(stack, argv[i], &a_index);
+		{
+			if (put_string_number_in_a(stack, argv[i], &a_index) == 1)
+				return;
+		}
 		i++;
 	}
 }
@@ -92,7 +93,7 @@ int	test_input_valid(int argc, char *argv[])
 		b = 0;
 		while (argv[i][b])
 		{
-			if (ft_isdigit(argv[i][b]) == 0 && argv[i][b] == -1
+			if (ft_isdigit(argv[i][b]) == 0 && argv[i][b] != '-'
 				&& argv[i][b] != ' ')
 				return (1);
 			b++;

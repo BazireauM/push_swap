@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:24:48 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/14 10:43:40 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/14 12:29:23 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,25 @@ int	have_space(char *s)
 	}
 	return (0);
 }
-/*
+
 int	put_number_in_a(t_stack *stack, char *argv, int *a_index)
 {
 	//test si argv est un int
+	/*
+	if (is_int(argv) == 1)
+	{
+		free(stack->a);
+		free(stack->b);
+		free(stack);
+		return (1);
+	}
+	*/
 	//put in a
+	stack->a[*a_index] = ft_atoi(argv);
+	return (0);
+}
+/*
+void	put_string_number_in_a(t_stack stack, char *argv, int *a_index)
+{
 }
 */
