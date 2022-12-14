@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:31:49 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/12 10:52:51 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/14 10:43:43 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,25 @@ t_stack	*parssing(int argc, char *argv[])
 	//test doublon
 	return (stack);
 }
+/*
+void	input_in_a(t_stack *stack, int argc, char *argv[])
+{
+	int	i;
+	int	b;
+	int	a_index;
 
+	i = 1;
+	a_index = stack->len;
+	while (i < argc)
+	{
+		if (have_space(argv[i]))
+			put_string_number_in_a(stack, argv[i], &a_index);
+		else
+			put_number_in_a(stack, argv[i], &a_index);
+		i++;
+	}
+}
+*/
 int	count_nb_int(int argc, char *argv[])
 {
 	t_norm	a;
@@ -74,7 +92,8 @@ int	test_input_valid(int argc, char *argv[])
 		b = 0;
 		while (argv[i][b])
 		{
-			if (ft_isdigit(argv[i][b]) == 0 && argv[i][b] != ' ')
+			if (ft_isdigit(argv[i][b]) == 0 && argv[i][b] == -1
+				&& argv[i][b] != ' ')
 				return (1);
 			b++;
 		}
