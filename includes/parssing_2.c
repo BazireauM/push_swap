@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:24:48 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/14 12:38:48 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:56:55 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	have_space(char *s)
 	return (0);
 }
 
-int	put_number_in_a(t_stack *stack, char *argv, int *a_index)
+int	put_number_in_a(t_stack *stack, char *nb, int *a_index)
 {
 	//test si argv est un int
 	/*
@@ -39,20 +39,35 @@ int	put_number_in_a(t_stack *stack, char *argv, int *a_index)
 	}
 	*/
 	//put in a
-	stack->a[*a_index] = ft_atoi(argv);
+	stack->a[*a_index] = ft_atoi(nb);
+	*a_index -= 1;
+	free(nb);
 	return (0);
 }
 
-int	put_string_number_in_a(t_stack stack, char *argv, int *a_index)
+int	put_string_number_in_a(t_stack *stack, char *s, int *a_index)
 {
-	int	i;
+	int		i;
+	int		b;
+	int		c;
+	char	*nb;
 
 	i = 0;
-	while (argv[i])
+	while (s[i])
 	{
-		if (argv[i] = ' ' && argv[i - 1] && ft_isdigit(argv[i - 1] == 1))
-		{
-		}
-		i++;
+		while (s[i] == ' ')
+			i++;
+		b = i;
+		while (s[b] != ' ' && s[b])
+			b++;
+		nb = malloc(sizeof(char) * (b - i + 1));
+		if (!nb)
+			return (1);
+		c = 0;
+		while (i < b)
+			nb[c++] = s[i++];
+		nb[c] = '\0';
+		put_number_in_a(stack, nb, a_index);
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:31:49 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/14 12:38:57 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:56:57 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,22 @@ t_stack	*parssing(int argc, char *argv[])
 	//count nb int
 	stack = malloc(sizeof(t_stack));
 	stack->len = count_nb_int(argc, argv);
+	printf("len : %d\n", stack->len);
 	//malloc a et b
 	stack->a = malloc(sizeof(int) * stack->len);
 	stack->b = malloc(sizeof(int) * stack->len);
 	//mettre les input dans a
-	//input_in_a(stack, argc, argv);
+	input_in_a(stack, argc, argv);
+	int i = stack->len;
+	while (i > 0)
+	{
+		printf("test2 : %d\n", stack->a[i]);
+		i--;
+	}
 	//test doublon
 	return (stack);
 }
-/*
+
 void	input_in_a(t_stack *stack, int argc, char *argv[])
 {
 	int	i;
@@ -42,15 +49,12 @@ void	input_in_a(t_stack *stack, int argc, char *argv[])
 	a_index = stack->len;
 	while (i < argc)
 	{
-		if (have_space(argv[i]))
-		{
-			if (put_string_number_in_a(stack, argv[i], &a_index) == 1)
-				return;
-		}
+		if (put_string_number_in_a(stack, argv[i], &a_index) == 1)
+			break;
 		i++;
 	}
 }
-*/
+
 int	count_nb_int(int argc, char *argv[])
 {
 	t_norm	a;
