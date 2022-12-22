@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:31:49 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/18 13:56:57 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:09:57 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ t_stack	*parssing(int argc, char *argv[])
 	stack->b = malloc(sizeof(int) * stack->len);
 	//mettre les input dans a
 	input_in_a(stack, argc, argv);
-	int i = stack->len;
+	int	i = stack->len;
 	while (i > 0)
 	{
-		printf("test2 : %d\n", stack->a[i]);
+		printf("%d\n", stack->a[i]);
 		i--;
 	}
 	//test doublon

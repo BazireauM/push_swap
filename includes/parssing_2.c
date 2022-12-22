@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:24:48 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/18 13:56:55 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:09:55 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,36 @@ int	put_number_in_a(t_stack *stack, char *nb, int *a_index)
 
 int	put_string_number_in_a(t_stack *stack, char *s, int *a_index)
 {
+	char	**test;
 	int		i;
-	int		b;
-	int		c;
-	char	*nb;
 
 	i = 0;
-	while (s[i])
+	test = ft_split(s, ' ');
+	if (!test)
 	{
-		while (s[i] == ' ')
-			i++;
-		b = i;
-		while (s[b] != ' ' && s[b])
-			b++;
-		nb = malloc(sizeof(char) * (b - i + 1));
-		if (!nb)
+		free(stack->a);
+		free(stack->b);
+		free(stack);
+		return (1);
+	}
+	while (test[i])
+	{
+		if (put_number_in_a(stack, test[i], a_index) == 1)
+		{
+			free(stack->a);
+			free(stack->b);
+			free(stack);
+			i = 0;
+			while (test[i])
+			{
+				free(test[i]);
+				i++;
+			}
+			free(test[i]);
+			free(test);
 			return (1);
-		c = 0;
-		while (i < b)
-			nb[c++] = s[i++];
-		nb[c] = '\0';
-		put_number_in_a(stack, nb, a_index);
+		}
+		i++;
 	}
 	return (0);
 }
