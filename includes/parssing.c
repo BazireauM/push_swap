@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:31:49 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/22 20:26:43 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:42:47 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	input_in_a(t_stack *stack, int argc, char *argv[])
 	while (i < argc)
 	{
 		if (put_string_number_in_a(stack, argv[i], &a_index) == 1)
-			break;
+			break ;
 		i++;
 	}
 }

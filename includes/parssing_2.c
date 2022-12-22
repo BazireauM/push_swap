@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:24:48 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/22 20:11:19 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:51:28 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	put_number_in_a(t_stack *stack, char *nb, int *a_index)
 	/*
 	if (is_int(argv) == 1)
 	{
-		free(stack->a);
-		free(stack->b);
-		free(stack);
+		free_stack(stack);
 		return (1);
 	}
 	*/
@@ -43,6 +41,27 @@ int	put_number_in_a(t_stack *stack, char *nb, int *a_index)
 	*a_index -= 1;
 	free(nb);
 	return (0);
+}
+
+void	free_stack(t_stack *stack)
+{
+	free(stack->a);
+	free(stack->b);
+	free(stack);
+}
+
+void	free_norm(char **test)
+{
+	int	i;
+
+	i = 0;
+	while (test[i])
+	{
+		free(test[i]);
+		i++;
+	}
+	free(test[i]);
+	free(test);
 }
 
 int	put_string_number_in_a(t_stack *stack, char *s, int *a_index)
@@ -54,26 +73,15 @@ int	put_string_number_in_a(t_stack *stack, char *s, int *a_index)
 	test = ft_split(s, ' ');
 	if (!test)
 	{
-		free(stack->a);
-		free(stack->b);
-		free(stack);
+		free_stack(stack);
 		return (1);
 	}
 	while (test[i])
 	{
 		if (put_number_in_a(stack, test[i], a_index) == 1)
 		{
-			free(stack->a);
-			free(stack->b);
-			free(stack);
-			i = 0;
-			while (test[i])
-			{
-				free(test[i]);
-				i++;
-			}
-			free(test[i]);
-			free(test);
+			free_stack(stack);
+			free_norm(test);
 			return (1);
 		}
 		i++;

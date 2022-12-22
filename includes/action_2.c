@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 20:48:44 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/22 21:24:09 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:42:10 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	rr(t_stack *stack)
 
 void	rra(t_stack *stack)
 {
-	int tmp;
-	int i;
+	int	tmp;
+	int	i;
 
 	if (stack->lena >= 2)
 	{
@@ -77,8 +77,8 @@ void	rra(t_stack *stack)
 
 void	rrb(t_stack *stack)
 {
-	int tmp;
-	int i;
+	int	tmp;
+	int	i;
 
 	if (stack->lenb >= 2)
 	{

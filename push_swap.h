@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/22 21:37:08 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:51:33 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	input_in_a(t_stack	*stack, int argc, char *argv[]);
 int		have_space(char *s);
 int		put_number_in_a(t_stack *stack, char *s, int *a_index);
 int		put_string_number_in_a(t_stack *stack, char *s, int *a_index);
+void	free_stack(t_stack *stack);
+void	free_norm(char **test);
 int		is_int(char *argv);
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
