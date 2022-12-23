@@ -6,7 +6,7 @@
 /*   By: mbazirea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:40:57 by mbazirea          #+#    #+#             */
-/*   Updated: 2022/12/22 21:51:33 by mbazirea         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:07:57 by mbazirea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,13 @@ void	ra(t_stack *stack);
 void	rb(t_stack *stack);
 void	rr(t_stack *stack);
 void	rra(t_stack *stack);
+void	rra1(t_stack *stack);
 void	rrb(t_stack *stack);
+void	rrb1(t_stack *stack);
 void	rrr(t_stack *stack);
+int		algo(t_stack *stack);
+int		is_sort_a(t_stack *stack);
+int		is_sort_b(t_stack *stack);
+int		is_sort_ab(t_stack *stack);
 
 #endif

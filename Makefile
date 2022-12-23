@@ -5,7 +5,8 @@ SRCS	=	main.c\
 			includes/parssing_2.c\
 			includes/action.c\
 			includes/action_2.c\
-			includes/action_3.c
+			includes/action_3.c\
+			includes/algo.c
 
 LIBFTDIR	=	libft/
 
